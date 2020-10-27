@@ -15,12 +15,24 @@ health = health.droplevel(level=0, axis=1).reset_index()
 
 
 # Bar Plot for "Missing Value by an Indicator"
+# Can we focus on some indicators having low missing value under 40%? 
 missing_by_indi =  (health.isna().sum() / len(health)).sort_values()[2:]   
 plt.figure(figsize=(20,10))
 sns.barplot(x='Indicator', y=0, data=missing_by_indi.reset_index())
 plt.tick_params(axis='x', bottom=False, labelbottom=False)
 plt.ylabel('% of Missing')
-### Can we focus on 69 indicators having low missing value under 10%? 
+
+
+
+# Bar Plot for "Missing value by a country"
+# Filter some countries based on 60%?
+missing_by_country = health.set_index(['Country','year']).T.isna().sum().reset_index().groupby('Country').sum()[0] / (health['year'].nunique() * len(health.columns[2:]))
+missing_by_country = missing_by_country.sort_values()
+plt.figure(figsize=(20,10))
+sns.barplot(x='Country', y=0, data=missing_by_country.reset_index())
+plt.tick_params(axis='x', bottom=False, labelbottom=False)
+plt.ylabel('% of Missing')
+
 
 
 # Heatmap(year * indicator): It's not easy to read beacuse of a number of indicators
