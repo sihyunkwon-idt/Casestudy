@@ -21,3 +21,9 @@ sns.barplot(x='Indicator', y=0, data=missing_by_indi.reset_index())
 plt.tick_params(axis='x', bottom=False, labelbottom=False)
 plt.ylabel('% of Missing')
 ### Can we focus on 69 indicators having low missing value under 10%? 
+
+
+# Heatmap(year * indicator): It's not easy to read beacuse of a number of indicators
+# Blue color is 'missing value'
+plt.figure(figsize=(50,20))
+sns.heatmap(health.groupby('year').mean().isna(), cmap='Blues') 
