@@ -24,6 +24,11 @@ plt.ylabel('% of Missing')
 
 
 # Heatmap(year * indicator): It's not easy to read beacuse of a number of indicators
+# But, we can see that there are many missing value in certain "years * indicators" (for example, top left side)
 # Blue color is 'missing value'
 plt.figure(figsize=(50,20))
 sns.heatmap(health.groupby('year').mean().isna(), cmap='Blues') 
+
+# Heatmap(Country * indicator): Messy...
+plt.figure(figsize=(50,20))
+sns.heatmap(health.groupby('Country').mean().isna(), cmap='Blues')
