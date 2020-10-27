@@ -11,4 +11,4 @@ health = health.pivot(index = 'Country Code', columns = 'Indicator Code').unstac
 health.columns = ['year','Indicator','Country','value']
 health = health.pivot(index=['Country','year'], columns='Indicator')
 
-health = health.reset_index().droplevel(level=0, axis=1)
+health = health.droplevel(level=0, axis=1).reset_index()
