@@ -32,3 +32,7 @@ sns.heatmap(health.groupby('year').mean().isna(), cmap='Blues')
 # Heatmap(Country * indicator): Messy...
 plt.figure(figsize=(50,20))
 sns.heatmap(health.groupby('Country').mean().isna(), cmap='Blues')
+
+# Heatmap (Country * year) doesn't have missung value in any combination.
+
+
