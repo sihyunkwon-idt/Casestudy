@@ -20,4 +20,4 @@ plt.figure(figsize=(20,10))
 sns.barplot(x='Indicator', y=0, data=missing_by_indi.reset_index())
 plt.tick_params(axis='x', bottom=False, labelbottom=False)
 plt.ylabel('% of Missing')
-### Can we focus on 69 indicator which has low missing value under 10%? 
+### Can we focus on 69 indicators having low missing value under 10%? 
