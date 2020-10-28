@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-health = pd.read_csv('data.csv')
+health = pd.read_csv('./data/data.csv')
 # drop some columns, and reshape the data into a panel format
 health.drop(['Unnamed: 60','Country Name','Indicator Name'], axis = 1, inplace= True)
 health = health.pivot(index = 'Country Code', columns = 'Indicator Code').unstack().reset_index()
