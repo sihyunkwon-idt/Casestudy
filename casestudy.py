@@ -13,6 +13,9 @@ health = health.pivot(index=['Country','year'], columns='Indicator')
 
 health = health.droplevel(level=0, axis=1).reset_index()
 
+# These metrics
+health = health[['Country','year','SH.DTH.COMM.ZS', 'SH.DTH.INJR.ZS', 'SH.MED.CMHW.P3', 'SH.CON.1524.FE.ZS', 'SH.CON.1524.MA.ZS','SP.DYN.TFRT.IN', 'NY.GNP.PCAP.CD', 'SH.XPD.PCAP', 'SH.MED.BEDS.ZS', 'SH.IMM.HEPB', 'SH.H2O.SAFE.ZS', 'SH.TBS.INCD', 'SP.DYN.LE00.IN', 'SH.MMR.RISK.ZS', 'SH.STA.STNT.ZS', 'SH.STA.MALN.ZS', 'SP.POP.0014.TO.ZS', 'SP.POP.GROW', 'SH.STA.ANVC.ZS', 'SH.DYN.AIDS.ZS', 'SH.STA.OW15.ZS', 'SH.PRG.SYPH.ZS', 'SH.TBS.PREV', 'SE.XPD.TOTL.GD.ZS', 'SE.ADT.1524.LT.FM.ZS', 'SP.RUR.TOTL.ZS', 'SE.PRM.ENRR', 'SH.PRV.SMOK.MA', 'SL.UEM.TOTL.ZS', 'SP.URB.GROW', 'SP.URB.TOTL.IN.ZS', 'SP.POP.TOTL']]
+
 
 # Bar Plot for "Missing Value by an Indicator"
 # Can we focus on some indicators having low missing value under 40%? 
